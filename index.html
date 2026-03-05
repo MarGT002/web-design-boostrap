@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regístrate en nuestra Plataforma</title>
+  <title>Regístrate — Deguel</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
 
   <!-- Google Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Bootstrap 5 -->
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" /> -->
-  <!-- Local-->  
+  <!-- Bootstrap 5 (local) -->
   <link rel="stylesheet" href="./assets/css/boostrap.min.css" />
+
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
@@ -22,130 +24,167 @@
 </head>
 <body>
 
+  <!-- ========================
+       NAVBAR
+  ======================== -->
+  <nav class="dg-navbar">
+    <div class="dg-navbar__brand">
+      <span class="dg-navbar__logo-icon"><i class="fa-solid fa-layer-group"></i></span>
+      <span class="dg-navbar__logo-text">Deguel</span>
+    </div>
+
+    <!-- Hamburger (mobile) -->
+    <button class="dg-navbar__toggle" id="navToggle" aria-label="Abrir menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="dg-navbar__menu" id="navMenu">
+      <ul class="dg-navbar__links">
+        <li><a href="#" class="dg-navbar__link"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="#" class="dg-navbar__link dg-navbar__link--active"><i class="fa-solid fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="#" class="dg-navbar__link"><i class="fa-solid fa-gear"></i> Configuración</a></li>
+      </ul>
+      <a href="#" class="dg-navbar__btn-login">
+        <i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión
+      </a>
+    </div>
+  </nav>
+
   <!-- Decorative background blobs -->
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
 
-  <!-- Registration card -->
-  <div class="card-register">
+  <!-- ========================
+       MAIN CONTENT
+  ======================== -->
+  <main class="dg-main">
+    <div class="card-register">
 
-    <!-- Header -->
-    <h1 class="form-title">Regístrate en nuestra Plataforma</h1>
-    <p class="form-subtitle">Solo te llevará unos segundos</p>
+      <h1 class="form-title">Regístrate en nuestra Plataforma</h1>
+      <p class="form-subtitle">Solo te llevará unos segundos</p>
 
-    <!-- Form -->
-    <form novalidate>
+      <form novalidate>
 
-      <!-- Nombre Completo -->
-      <div class="mb-1">
-        <label for="nombre" class="form-label">Nombre Completo</label>
-        <div class="input-wrap">
-          <i class="fa-regular fa-user icon-left"></i>
-          <input
-            type="text"
-            id="nombre"
-            class="form-control"
-            placeholder="Ej: Juan Pérez"
-            autocomplete="name"
-          />
+        <!-- Nombre Completo -->
+        <div class="mb-1">
+          <label for="nombre" class="form-label">Nombre Completo</label>
+          <div class="input-wrap">
+            <i class="fa-regular fa-user icon-left"></i>
+            <input type="text" id="nombre" class="form-control"
+              placeholder="Ej: Juan Pérez" autocomplete="name" />
+          </div>
         </div>
+
+        <!-- Correo Electrónico -->
+        <div class="mb-1">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <div class="input-wrap">
+            <i class="fa-regular fa-envelope icon-left"></i>
+            <input type="email" id="email" class="form-control"
+              placeholder="ejemplo@email.com" autocomplete="email" />
+          </div>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="mb-1">
+          <label for="password" class="form-label">Contraseña</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-key icon-left"></i>
+            <input type="password" id="password" class="form-control"
+              placeholder="Crea una contraseña segura" autocomplete="new-password" />
+            <button type="button" class="icon-right" id="togglePassword"
+              aria-label="Mostrar u ocultar contraseña">
+              <i class="fa-regular fa-eye-slash" id="eyeIcon"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Selecciona tu Plan -->
+        <div class="mb-1">
+          <label for="plan" class="form-label">Selecciona tu Plan</label>
+          <div class="input-wrap select-wrap">
+            <select id="plan" class="form-select">
+              <option value="">Básico (Gratis), Pro ($10/mes), Empresarial ($30/mes)</option>
+              <option value="basico">Básico (Gratis)</option>
+              <option value="pro">Pro ($10/mes)</option>
+              <option value="empresarial">Empresarial ($30/mes)</option>
+            </select>
+            <span class="icon-right">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Mensaje u Observaciones -->
+        <div class="mb-1">
+          <label for="mensaje" class="form-label">
+            Mensaje u Observaciones
+            <span style="font-weight:400;color:#aaa;">(Opcional)</span>
+          </label>
+          <div class="input-wrap textarea-wrap">
+            <textarea id="mensaje" class="form-control"
+              placeholder="Déjanos un mensaje si lo deseas..." rows="4"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-register">Crear Cuenta</button>
+
+      </form>
+
+      <div class="form-footer">
+        <div>¿Ya tienes una cuenta? <a href="#">Iniciar sesión</a></div>
+        <div>Al registrarte, aceptas nuestros <a href="#">Términos y Condiciones</a></div>
       </div>
 
-      <!-- Correo Electrónico -->
-      <div class="mb-1">
-        <label for="email" class="form-label">Correo Electrónico</label>
-        <div class="input-wrap">
-          <i class="fa-regular fa-envelope icon-left"></i>
-          <input
-            type="email"
-            id="email"
-            class="form-control"
-            placeholder="ejemplo@email.com"
-            autocomplete="email"
-          />
-        </div>
-      </div>
-
-      <!-- Contraseña -->
-      <div class="mb-1">
-        <label for="password" class="form-label">Contraseña</label>
-        <div class="input-wrap">
-          <i class="fa-solid fa-key icon-left"></i>
-          <input
-            type="password"
-            id="password"
-            class="form-control"
-            placeholder="Crea una contraseña segura"
-            autocomplete="new-password"
-          />
-          <button
-            type="button"
-            class="icon-right"
-            id="togglePassword"
-            aria-label="Mostrar u ocultar contraseña"
-          >
-            <i class="fa-regular fa-eye-slash" id="eyeIcon"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Selecciona tu Plan -->
-      <div class="mb-1">
-        <label for="plan" class="form-label">Selecciona tu Plan</label>
-        <div class="input-wrap select-wrap">
-          <select id="plan" class="form-select">
-            <option value="">Básico (Gratis), Pro ($10/mes), Empresarial ($30/mes)</option>
-            <option value="basico">Básico (Gratis)</option>
-            <option value="pro">Pro ($10/mes)</option>
-            <option value="empresarial">Empresarial ($30/mes)</option>
-          </select>
-          <span class="icon-right">
-            <i class="fa-solid fa-chevron-down"></i>
-          </span>
-        </div>
-      </div>
-
-      <!-- Mensaje u Observaciones -->
-      <div class="mb-1">
-        <label for="mensaje" class="form-label">Mensaje u Observaciones <span style="font-weight:400;color:#aaa;">(Opcional)</span></label>
-        <div class="input-wrap textarea-wrap">
-          <textarea
-            id="mensaje"
-            class="form-control"
-            placeholder="Déjanos un mensaje si lo deseas..."
-            rows="4"
-          ></textarea>
-        </div>
-      </div>
-
-      <!-- Submit -->
-      <button type="submit" class="btn-register">Crear Cuenta</button>
-
-    </form>
-
-    <!-- Footer -->
-    <div class="form-footer">
-      <div>¿Ya tienes una cuenta? <a href="#">Iniciar sesión</a></div>
-      <div>Al registrarte, aceptas nuestros <a href="#">Términos y Condiciones</a></div>
     </div>
+  </main>
 
-  </div><!-- /card-register -->
+  <!-- ========================
+       FOOTER
+  ======================== -->
+  <footer class="dg-footer">
+    <div class="dg-footer__inner">
+
+      <div class="dg-footer__brand">
+        <span class="dg-footer__logo-icon"><i class="fa-solid fa-layer-group"></i></span>
+        <span class="dg-footer__logo-text">Deguel</span>
+      </div>
+
+      <div class="dg-footer__author">
+        <p class="dg-footer__name">Mario García Terrazas</p>
+        <p class="dg-footer__role">Web Developer &amp; Social Media Manager</p>
+      </div>
+
+      <p class="dg-footer__copy">
+        &copy; <span id="year"></span> Deguel. All rights reserved.
+      </p>
+
+    </div>
+  </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Toggle password visibility -->
   <script>
-    const toggleBtn  = document.getElementById('togglePassword');
+    /* Año dinámico */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* Toggle contraseña */
+    const toggleBtn     = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('password');
-    const eyeIcon    = document.getElementById('eyeIcon');
+    const eyeIcon       = document.getElementById('eyeIcon');
 
     toggleBtn.addEventListener('click', () => {
       const isHidden = passwordInput.type === 'password';
       passwordInput.type = isHidden ? 'text' : 'password';
       eyeIcon.classList.toggle('fa-eye-slash', !isHidden);
-      eyeIcon.classList.toggle('fa-eye',       isHidden);
+      eyeIcon.classList.toggle('fa-eye',        isHidden);
+    });
+
+    /* Hamburger mobile */
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navMenu').classList.toggle('dg-navbar__menu--open');
     });
   </script>
 
