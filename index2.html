@@ -8,21 +8,22 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
 
-  <!-- Google Fonts: Poppins -->
+  <!-- Google Fonts: Syne + DM Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Bootstrap 5 (local) -->
-  <link rel="stylesheet" href="./assets/css/boostrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <!-- Custom styles (dark theme) -->
+  <link rel="stylesheet" href="./assets/css/styles2.css" />
 </head>
 <body>
+
+  <!-- Glowing orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
   <!-- ========================
        NAVBAR
@@ -33,7 +34,6 @@
       <span class="dg-navbar__logo-text">Deguel</span>
     </div>
 
-    <!-- Hamburger (mobile) -->
     <button class="dg-navbar__toggle" id="navToggle" aria-label="Abrir menú">
       <i class="fa-solid fa-bars"></i>
     </button>
@@ -50,35 +50,31 @@
     </div>
   </nav>
 
-  <!-- Decorative background blobs -->
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-
   <!-- ========================
-       MAIN CONTENT
+       MAIN
   ======================== -->
   <main class="dg-main">
 
     <!-- Framework switcher -->
     <div class="dg-switcher">
-      <a href="index.html" class="dg-switcher__btn dg-switcher__btn--active">
+      <a href="index.html" class="dg-switcher__btn">
         <i class="fa-brands fa-bootstrap"></i> Bootstrap
       </a>
-      <a href="index2.html" class="dg-switcher__btn">
+      <a href="index2.html" class="dg-switcher__btn dg-switcher__btn--active">
         <i class="fa-solid fa-wind"></i> Tailwind
       </a>
     </div>
 
+    <!-- Card -->
     <div class="card-register">
 
-      <h1 class="form-title">Regístrate en nuestra Plataforma</h1>
+      <h1 class="form-title">Regístrate en nuestra<br/>Plataforma</h1>
       <p class="form-subtitle">Solo te llevará unos segundos</p>
 
       <form novalidate>
 
         <!-- Nombre Completo -->
-        <div class="mb-1">
+        <div>
           <label for="nombre" class="form-label">Nombre Completo</label>
           <div class="input-wrap">
             <i class="fa-regular fa-user icon-left"></i>
@@ -88,7 +84,7 @@
         </div>
 
         <!-- Correo Electrónico -->
-        <div class="mb-1">
+        <div>
           <label for="email" class="form-label">Correo Electrónico</label>
           <div class="input-wrap">
             <i class="fa-regular fa-envelope icon-left"></i>
@@ -98,7 +94,7 @@
         </div>
 
         <!-- Contraseña -->
-        <div class="mb-1">
+        <div>
           <label for="password" class="form-label">Contraseña</label>
           <div class="input-wrap">
             <i class="fa-solid fa-key icon-left"></i>
@@ -112,7 +108,7 @@
         </div>
 
         <!-- Selecciona tu Plan -->
-        <div class="mb-1">
+        <div>
           <label for="plan" class="form-label">Selecciona tu Plan</label>
           <div class="input-wrap select-wrap">
             <select id="plan" class="form-select">
@@ -128,14 +124,13 @@
         </div>
 
         <!-- Mensaje u Observaciones -->
-        <div class="mb-1">
+        <div>
           <label for="mensaje" class="form-label">
-            Mensaje u Observaciones
-            <span style="font-weight:400;color:#aaa;">(Opcional)</span>
+            Mensaje u Observaciones <span>(Opcional)</span>
           </label>
-          <div class="input-wrap textarea-wrap">
+          <div class="input-wrap">
             <textarea id="mensaje" class="form-control"
-              placeholder="Déjanos un mensaje si lo deseas..." rows="4"></textarea>
+              placeholder="Déjanos un mensaje si lo deseas..." rows="3"></textarea>
           </div>
         </div>
 
@@ -156,44 +151,32 @@
   ======================== -->
   <footer class="dg-footer">
     <div class="dg-footer__inner">
-
       <div class="dg-footer__brand">
         <span class="dg-footer__logo-icon"><i class="fa-solid fa-layer-group"></i></span>
         <span class="dg-footer__logo-text">Deguel</span>
       </div>
-
       <div class="dg-footer__author">
         <p class="dg-footer__name">Mario García Terrazas</p>
         <p class="dg-footer__role">Web Developer &amp; Social Media Manager</p>
       </div>
-
-      <p class="dg-footer__copy">
-        &copy; <span id="year"></span> Deguel. All rights reserved.
-      </p>
-
+      <p class="dg-footer__copy">&copy; <span id="year"></span> Deguel. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
-    /* Año dinámico */
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    /* Toggle contraseña */
-    const toggleBtn     = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('password');
-    const eyeIcon       = document.getElementById('eyeIcon');
-
-    toggleBtn.addEventListener('click', () => {
-      const isHidden = passwordInput.type === 'password';
-      passwordInput.type = isHidden ? 'text' : 'password';
-      eyeIcon.classList.toggle('fa-eye-slash', !isHidden);
-      eyeIcon.classList.toggle('fa-eye',        isHidden);
+    /* Toggle password */
+    document.getElementById('togglePassword').addEventListener('click', () => {
+      const input = document.getElementById('password');
+      const icon  = document.getElementById('eyeIcon');
+      const hidden = input.type === 'password';
+      input.type = hidden ? 'text' : 'password';
+      icon.classList.toggle('fa-eye-slash', !hidden);
+      icon.classList.toggle('fa-eye',        hidden);
     });
 
-    /* Hamburger mobile */
+    /* Mobile nav */
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navMenu').classList.toggle('dg-navbar__menu--open');
     });
